@@ -1,0 +1,27 @@
+version: 0.2
+
+env:
+  parameter-store:
+    DOCKER_REGISTRY_USERNAME: /myapp/docker/username 
+    DOCKER_REGISTRY_PASSWORD: /myapp/docker/password
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.11
+
+  pre_build:
+    commands:
+      - echo Logging in to Docker Hub...
+      - echo "$DOCKER_REGISTRY_PASSWORD" | docker login -u "$DOCKER_REGISTRY_USERNAME" --password-stdin
+
+  build:
+    commands:
+      - echo "Building the Docker Image"
+      - docker build -t "$DOCKER_REGISTRY_USERNAME/sample-python-flask-app:latest" simple-python-app/
+      - echo "Pushing the Docker Image"
+      - docker push "$DOCKER_REGISTRY_USERNAME/sample-python-flask-app:latest"
+
+  post_build:
+    commands:
+      - echo "Build is Successfully completed"

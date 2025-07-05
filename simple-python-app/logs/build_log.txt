@@ -1,0 +1,232 @@
+[Container] 2025/07/05 13:36:42.286347 Running on CodeBuild On-demand
+[Container] 2025/07/05 13:36:42.286361 Waiting for agent ping
+[Container] 2025/07/05 13:36:43.591732 Waiting for DOWNLOAD_SOURCE
+[Container] 2025/07/05 13:36:48.124751 Phase is DOWNLOAD_SOURCE
+[Container] 2025/07/05 13:36:48.126311 CODEBUILD_SRC_DIR=/codebuild/output/src2955357723/src/github.com/nagenbiswal123/CI-Integration-with-PythonApp
+[Container] 2025/07/05 13:36:48.126860 YAML location is /codebuild/readonly/buildspec.yml
+[Container] 2025/07/05 13:36:48.127008 No commands found for phase name: install
+[Container] 2025/07/05 13:36:48.129941 Setting HTTP client timeout to higher timeout for Github and GitHub Enterprise sources
+[Container] 2025/07/05 13:36:48.130067 Processing environment variables
+[Container] 2025/07/05 13:36:48.139003 Decrypting parameter store environment variables
+[Container] 2025/07/05 13:36:49.418191 Selecting 'python' runtime version '3.11' based on manual selections...
+[Container] 2025/07/05 13:36:49.418283 Running command echo "Installing Python version 3.11 ..."
+Installing Python version 3.11 ...
+
+[Container] 2025/07/05 13:36:49.426641 Running command pyenv global $PYTHON_311_VERSION
+
+[Container] 2025/07/05 13:36:50.014722 Moving to directory /codebuild/output/src2955357723/src/github.com/nagenbiswal123/CI-Integration-with-PythonApp
+[Container] 2025/07/05 13:36:50.014749 Cache is not defined in the buildspec
+[Container] 2025/07/05 13:36:50.574597 Skip cache due to: no paths specified to be cached
+[Container] 2025/07/05 13:36:50.574851 Registering with agent
+[Container] 2025/07/05 13:36:51.061540 Phases found in YAML: 4
+[Container] 2025/07/05 13:36:51.061563  BUILD: 4 commands
+[Container] 2025/07/05 13:36:51.061568  POST_BUILD: 1 commands
+[Container] 2025/07/05 13:36:51.061573  INSTALL: 0 commands
+[Container] 2025/07/05 13:36:51.061577  PRE_BUILD: 2 commands
+[Container] 2025/07/05 13:36:51.061865 Phase complete: DOWNLOAD_SOURCE State: SUCCEEDED
+[Container] 2025/07/05 13:36:51.061877 Phase context status code:  Message: 
+[Container] 2025/07/05 13:36:51.624853 Entering phase INSTALL
+[Container] 2025/07/05 13:36:52.680666 Phase complete: INSTALL State: SUCCEEDED
+[Container] 2025/07/05 13:36:52.680686 Phase context status code:  Message: 
+[Container] 2025/07/05 13:36:52.721161 Entering phase PRE_BUILD
+[Container] 2025/07/05 13:36:52.722191 Running command echo Logging in to Docker Hub...
+Logging in to Docker Hub...
+
+[Container] 2025/07/05 13:36:52.727999 Running command echo "$DOCKER_REGISTRY_PASSWORD" | docker login -u "$DOCKER_REGISTRY_USERNAME" --password-stdin
+WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credential-stores
+
+Login Succeeded
+
+[Container] 2025/07/05 13:36:54.592538 Phase complete: PRE_BUILD State: SUCCEEDED
+[Container] 2025/07/05 13:36:54.592555 Phase context status code:  Message: 
+[Container] 2025/07/05 13:36:54.626014 Entering phase BUILD
+[Container] 2025/07/05 13:36:54.627005 Running command echo "Building the Docker Image"
+Building the Docker Image
+
+[Container] 2025/07/05 13:36:54.632893 Running command docker build -t "$DOCKER_REGISTRY_USERNAME/sample-python-flask-app:latest" simple-python-app/
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 529B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.11
+#2 ...
+
+#3 [auth] library/python:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.11
+#2 DONE 2.2s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 763B done
+#5 DONE 0.0s
+
+#6 [1/5] FROM docker.io/library/python:3.11@sha256:ca0b6467f5accb0c39c154a5e242df36348d9afb009a58b4263755d78728a21c
+#6 resolve docker.io/library/python:3.11@sha256:ca0b6467f5accb0c39c154a5e242df36348d9afb009a58b4263755d78728a21c 0.0s done
+#6 sha256:80f071f33c6ae7f5ca760d5a395c3be1db7a2fd08bb0101ee36bcc7001b7b035 6.26kB / 6.26kB done
+#6 sha256:7bbf972c6c2f5b7313ae3cb74e63888ab70931bcd9aefd960f9a38c540dbf2ca 0B / 24.02MB 0.1s
+#6 sha256:ca0b6467f5accb0c39c154a5e242df36348d9afb009a58b4263755d78728a21c 9.08kB / 9.08kB done
+#6 sha256:1c8bafb130081aafc9bdc3c3600f1368d05ad36f782a49d4983e0a7f75208bc3 2.33kB / 2.33kB done
+#6 sha256:c1995213564325caf7e52ecd95fe4435c70b03eb94c674ac15706733986b86e0 0B / 48.49MB 0.1s
+#6 sha256:900e2c02f17f686733f4f957ddfb07b3342d1957d87b56254634d4fbb2abb81d 0B / 64.40MB 0.1s
+#6 sha256:c1995213564325caf7e52ecd95fe4435c70b03eb94c674ac15706733986b86e0 15.73MB / 48.49MB 0.3s
+#6 sha256:c1995213564325caf7e52ecd95fe4435c70b03eb94c674ac15706733986b86e0 33.55MB / 48.49MB 0.4s
+#6 sha256:7bbf972c6c2f5b7313ae3cb74e63888ab70931bcd9aefd960f9a38c540dbf2ca 9.44MB / 24.02MB 0.5s
+#6 sha256:c1995213564325caf7e52ecd95fe4435c70b03eb94c674ac15706733986b86e0 48.23MB / 48.49MB 0.5s
+#6 sha256:7bbf972c6c2f5b7313ae3cb74e63888ab70931bcd9aefd960f9a38c540dbf2ca 23.07MB / 24.02MB 0.6s
+#6 sha256:c1995213564325caf7e52ecd95fe4435c70b03eb94c674ac15706733986b86e0 48.49MB / 48.49MB 0.6s done
+#6 sha256:abe9c1abe6f3b8ca9fc6abe710405f830f95262f1d356e8f6545d823b5840a5c 0B / 211.37MB 0.6s
+#6 extracting sha256:c1995213564325caf7e52ecd95fe4435c70b03eb94c674ac15706733986b86e0
+#6 sha256:7bbf972c6c2f5b7313ae3cb74e63888ab70931bcd9aefd960f9a38c540dbf2ca 24.02MB / 24.02MB 0.7s done
+#6 sha256:900e2c02f17f686733f4f957ddfb07b3342d1957d87b56254634d4fbb2abb81d 28.31MB / 64.40MB 0.8s
+#6 sha256:910d81b6840f3290efb2cb9dc9ef0d43aadee414afd7816cf4e0e8f4622fef97 0B / 6.16MB 0.8s
+#6 sha256:900e2c02f17f686733f4f957ddfb07b3342d1957d87b56254634d4fbb2abb81d 49.28MB / 64.40MB 1.0s
+#6 sha256:abe9c1abe6f3b8ca9fc6abe710405f830f95262f1d356e8f6545d823b5840a5c 17.83MB / 211.37MB 1.0s
+#6 sha256:900e2c02f17f686733f4f957ddfb07b3342d1957d87b56254634d4fbb2abb81d 56.98MB / 64.40MB 1.1s
+#6 sha256:910d81b6840f3290efb2cb9dc9ef0d43aadee414afd7816cf4e0e8f4622fef97 2.10MB / 6.16MB 1.1s
+#6 sha256:900e2c02f17f686733f4f957ddfb07b3342d1957d87b56254634d4fbb2abb81d 64.40MB / 64.40MB 1.2s done
+#6 sha256:abe9c1abe6f3b8ca9fc6abe710405f830f95262f1d356e8f6545d823b5840a5c 40.89MB / 211.37MB 1.3s
+#6 sha256:910d81b6840f3290efb2cb9dc9ef0d43aadee414afd7816cf4e0e8f4622fef97 6.16MB / 6.16MB 1.2s done
+#6 sha256:73939f3e7d7067f46c3cff806ccb086f951c31dedfa919b073867c1c2c4c8ce3 0B / 24.32MB 1.3s
+#6 sha256:35d0d1d9171062926883038d0619da2d5b0d80ec536232ea8b43d67c046dc8d2 0B / 250B 1.3s
+#6 sha256:abe9c1abe6f3b8ca9fc6abe710405f830f95262f1d356e8f6545d823b5840a5c 54.53MB / 211.37MB 1.4s
+#6 sha256:abe9c1abe6f3b8ca9fc6abe710405f830f95262f1d356e8f6545d823b5840a5c 68.16MB / 211.37MB 1.5s
+#6 sha256:73939f3e7d7067f46c3cff806ccb086f951c31dedfa919b073867c1c2c4c8ce3 8.39MB / 24.32MB 1.5s
+#6 sha256:35d0d1d9171062926883038d0619da2d5b0d80ec536232ea8b43d67c046dc8d2 250B / 250B 1.5s done
+#6 sha256:73939f3e7d7067f46c3cff806ccb086f951c31dedfa919b073867c1c2c4c8ce3 20.14MB / 24.32MB 1.6s
+#6 sha256:abe9c1abe6f3b8ca9fc6abe710405f830f95262f1d356e8f6545d823b5840a5c 79.69MB / 211.37MB 1.7s
+#6 sha256:73939f3e7d7067f46c3cff806ccb086f951c31dedfa919b073867c1c2c4c8ce3 24.32MB / 24.32MB 1.7s done
+#6 sha256:abe9c1abe6f3b8ca9fc6abe710405f830f95262f1d356e8f6545d823b5840a5c 91.19MB / 211.37MB 1.8s
+#6 sha256:abe9c1abe6f3b8ca9fc6abe710405f830f95262f1d356e8f6545d823b5840a5c 118.49MB / 211.37MB 2.0s
+#6 sha256:abe9c1abe6f3b8ca9fc6abe710405f830f95262f1d356e8f6545d823b5840a5c 133.17MB / 211.37MB 2.1s
+#6 sha256:abe9c1abe6f3b8ca9fc6abe710405f830f95262f1d356e8f6545d823b5840a5c 145.75MB / 211.37MB 2.2s
+#6 sha256:abe9c1abe6f3b8ca9fc6abe710405f830f95262f1d356e8f6545d823b5840a5c 159.38MB / 211.37MB 2.3s
+#6 sha256:abe9c1abe6f3b8ca9fc6abe710405f830f95262f1d356e8f6545d823b5840a5c 174.06MB / 211.37MB 2.4s
+#6 sha256:abe9c1abe6f3b8ca9fc6abe710405f830f95262f1d356e8f6545d823b5840a5c 202.38MB / 211.37MB 2.7s
+#6 sha256:abe9c1abe6f3b8ca9fc6abe710405f830f95262f1d356e8f6545d823b5840a5c 211.37MB / 211.37MB 2.9s done
+#6 extracting sha256:c1995213564325caf7e52ecd95fe4435c70b03eb94c674ac15706733986b86e0 2.7s done
+#6 extracting sha256:7bbf972c6c2f5b7313ae3cb74e63888ab70931bcd9aefd960f9a38c540dbf2ca
+#6 extracting sha256:7bbf972c6c2f5b7313ae3cb74e63888ab70931bcd9aefd960f9a38c540dbf2ca 0.6s done
+#6 extracting sha256:900e2c02f17f686733f4f957ddfb07b3342d1957d87b56254634d4fbb2abb81d
+#6 extracting sha256:900e2c02f17f686733f4f957ddfb07b3342d1957d87b56254634d4fbb2abb81d 2.3s done
+#6 extracting sha256:abe9c1abe6f3b8ca9fc6abe710405f830f95262f1d356e8f6545d823b5840a5c
+#6 extracting sha256:abe9c1abe6f3b8ca9fc6abe710405f830f95262f1d356e8f6545d823b5840a5c 5.0s
+#6 extracting sha256:abe9c1abe6f3b8ca9fc6abe710405f830f95262f1d356e8f6545d823b5840a5c 6.4s done
+#6 extracting sha256:910d81b6840f3290efb2cb9dc9ef0d43aadee414afd7816cf4e0e8f4622fef97
+#6 extracting sha256:910d81b6840f3290efb2cb9dc9ef0d43aadee414afd7816cf4e0e8f4622fef97 0.3s done
+#6 extracting sha256:73939f3e7d7067f46c3cff806ccb086f951c31dedfa919b073867c1c2c4c8ce3 0.1s
+#6 extracting sha256:73939f3e7d7067f46c3cff806ccb086f951c31dedfa919b073867c1c2c4c8ce3 0.8s done
+#6 extracting sha256:35d0d1d9171062926883038d0619da2d5b0d80ec536232ea8b43d67c046dc8d2 done
+#6 DONE 14.5s
+
+#7 [2/5] WORKDIR /app
+#7 DONE 0.6s
+
+#8 [3/5] COPY requirements.txt .
+#8 DONE 0.1s
+
+#9 [4/5] RUN pip install --no-cache-dir -r requirements.txt
+#9 1.746 Collecting flask (from -r requirements.txt (line 1))
+#9 1.784   Downloading flask-3.1.1-py3-none-any.whl.metadata (3.0 kB)
+#9 1.802 Collecting blinker>=1.9.0 (from flask->-r requirements.txt (line 1))
+#9 1.805   Downloading blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+#9 1.825 Collecting click>=8.1.3 (from flask->-r requirements.txt (line 1))
+#9 1.829   Downloading click-8.2.1-py3-none-any.whl.metadata (2.5 kB)
+#9 1.841 Collecting itsdangerous>=2.2.0 (from flask->-r requirements.txt (line 1))
+#9 1.844   Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+#9 1.862 Collecting jinja2>=3.1.2 (from flask->-r requirements.txt (line 1))
+#9 1.866   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+#9 1.922 Collecting markupsafe>=2.1.1 (from flask->-r requirements.txt (line 1))
+#9 1.925   Downloading MarkupSafe-3.0.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.0 kB)
+#9 1.955 Collecting werkzeug>=3.1.0 (from flask->-r requirements.txt (line 1))
+#9 1.958   Downloading werkzeug-3.1.3-py3-none-any.whl.metadata (3.7 kB)
+#9 1.973 Downloading flask-3.1.1-py3-none-any.whl (103 kB)
+#9 1.981    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 103.3/103.3 kB 14.9 MB/s eta 0:00:00
+#9 1.985 Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+#9 1.988 Downloading click-8.2.1-py3-none-any.whl (102 kB)
+#9 1.993    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 102.2/102.2 kB 38.9 MB/s eta 0:00:00
+#9 1.996 Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+#9 1.999 Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+#9 2.003    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.9/134.9 kB 72.9 MB/s eta 0:00:00
+#9 2.006 Downloading MarkupSafe-3.0.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (23 kB)
+#9 2.009 Downloading werkzeug-3.1.3-py3-none-any.whl (224 kB)
+#9 2.014    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 224.5/224.5 kB 63.2 MB/s eta 0:00:00
+#9 2.068 Installing collected packages: markupsafe, itsdangerous, click, blinker, werkzeug, jinja2, flask
+#9 2.415 Successfully installed blinker-1.9.0 click-8.2.1 flask-3.1.1 itsdangerous-2.2.0 jinja2-3.1.6 markupsafe-3.0.2 werkzeug-3.1.3
+#9 2.415 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#9 2.506 
+#9 2.506 [notice] A new release of pip is available: 24.0 -> 25.1.1
+#9 2.506 [notice] To update, run: pip install --upgrade pip
+#9 DONE 2.7s
+
+#10 [5/5] COPY . .
+#10 DONE 0.1s
+
+#11 exporting to image
+#11 exporting layers 0.1s done
+#11 writing image sha256:1f91507a22cbd21ab317c65ff6f7d1086c71e3be6fbf9eedae45d0e9a0145e50 done
+#11 naming to docker.io/***/sample-python-flask-app:latest done
+#11 DONE 0.2s
+
+[Container] 2025/07/05 13:37:15.223990 Running command echo "Pushing the Docker Image"
+Pushing the Docker Image
+
+[Container] 2025/07/05 13:37:15.231798 Running command docker push "$DOCKER_REGISTRY_USERNAME/sample-python-flask-app:latest"
+The push refers to repository [docker.io/***/sample-python-flask-app]
+c8907fdd9002: Preparing
+ac7201c91465: Preparing
+69fdb5d71b39: Preparing
+3d3653e85a45: Preparing
+b14d15e32ac1: Preparing
+e17047b06842: Preparing
+174f9a0051b3: Preparing
+0a3d3e410343: Preparing
+8bc405ffff1c: Preparing
+c878d283e64a: Preparing
+385eb556134e: Preparing
+e17047b06842: Waiting
+174f9a0051b3: Waiting
+0a3d3e410343: Waiting
+8bc405ffff1c: Waiting
+c878d283e64a: Waiting
+385eb556134e: Waiting
+b14d15e32ac1: Layer already exists
+e17047b06842: Layer already exists
+174f9a0051b3: Layer already exists
+0a3d3e410343: Layer already exists
+c8907fdd9002: Pushed
+3d3653e85a45: Pushed
+69fdb5d71b39: Pushed
+8bc405ffff1c: Layer already exists
+c878d283e64a: Layer already exists
+385eb556134e: Layer already exists
+ac7201c91465: Pushed
+latest: digest: sha256:ac081777db5a2de8fa065272248da110cbb5691115d8f354e0554ae98d1e062d size: 2628
+
+[Container] 2025/07/05 13:37:28.799828 Phase complete: BUILD State: SUCCEEDED
+[Container] 2025/07/05 13:37:28.799844 Phase context status code:  Message: 
+[Container] 2025/07/05 13:37:28.834728 Entering phase POST_BUILD
+[Container] 2025/07/05 13:37:28.835810 Running command echo "Build is Successfully completed"
+Build is Successfully completed
+
+[Container] 2025/07/05 13:37:28.842072 Phase complete: POST_BUILD State: SUCCEEDED
+[Container] 2025/07/05 13:37:28.842087 Phase context status code:  Message: 
+[Container] 2025/07/05 13:37:28.887347 Set report auto-discover timeout to 5 seconds
+[Container] 2025/07/05 13:37:28.887466 Expanding base directory path:  .
+[Container] 2025/07/05 13:37:28.888985 Assembling file list
+[Container] 2025/07/05 13:37:28.888996 Expanding .
+[Container] 2025/07/05 13:37:28.890589 Expanding file paths for base directory .
+[Container] 2025/07/05 13:37:28.890602 Assembling file list
+[Container] 2025/07/05 13:37:28.890606 Expanding **/*
+[Container] 2025/07/05 13:37:28.892517 No matching auto-discover report paths found
+[Container] 2025/07/05 13:37:28.892533 Report auto-discover file discovery took 0.005187 seconds
+[Container] 2025/07/05 13:37:28.892544 Phase complete: UPLOAD_ARTIFACTS State: SUCCEEDED
+[Container] 2025/07/05 13:37:28.892550 Phase context status code:  Message: 
